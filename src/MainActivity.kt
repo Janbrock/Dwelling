@@ -19,6 +19,9 @@ fun main() {
         println("Floor area: %.2f".format(floorArea()))
         println("Capacity: ${capacity}")
         println("Has room? ${hasRoom()}")
+        getRoom()
+        println("Has room? ${hasRoom()}")
+        getRoom()
     }
     with(roundTower) {
         println("\nRound Tower\n===========")
@@ -30,12 +33,20 @@ fun main() {
     }
 }
 
-abstract class Dwelling(private val residents: Int) {
+abstract class Dwelling(var residents: Int) {
     abstract val buildingMaterial: String
     abstract val capacity: Int
 
     fun hasRoom(): Boolean {
         return residents < capacity
+    }
+    fun getRoom(){
+        if (residents<capacity){
+            residents++
+            println("You got a room!")
+        }else{
+            println("Sorry, at capacity and no rooms left.")
+        }
     }
 
     abstract fun floorArea(): Double
