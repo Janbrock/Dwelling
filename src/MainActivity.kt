@@ -16,7 +16,7 @@ fun main() {
     with(roundHut) {
         println("\nRound Hut\n=========")
         println("Material: ${buildingMaterial}")
-        println("Floor area: ${floorArea()}")
+        println("Floor area: %.2f".format(floorArea()))
         println("Capacity: ${capacity}")
         println("Has room? ${hasRoom()}")
     }
@@ -24,7 +24,7 @@ fun main() {
         println("\nRound Tower\n===========")
         println("Material: ${buildingMaterial}")
         println("Floors: ${floors}")
-        println("Floor area: ${floorArea()}")
+        println("Floor area: %.2f".format(floorArea()))
         println("Capacity: ${capacity}")
         println("Has room? ${hasRoom()}")
     }
