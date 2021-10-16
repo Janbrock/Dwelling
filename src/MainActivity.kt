@@ -1,4 +1,5 @@
 import kotlin.math.PI
+import kotlin.math.sqrt
 
 fun main() {
     val squareCabin = SquareCabin(6, 50.0)
@@ -11,7 +12,7 @@ fun main() {
         println("Floor area: ${floorArea()}")
         println("Capacity: ${capacity}")
         println("Has room? ${hasRoom()}")
-
+        getRoom()
     }
     with(roundHut) {
         println("\nRound Hut\n=========")
@@ -20,8 +21,7 @@ fun main() {
         println("Capacity: ${capacity}")
         println("Has room? ${hasRoom()}")
         getRoom()
-        println("Has room? ${hasRoom()}")
-        getRoom()
+        println("Carpet size: %.3f".format(calculateMaxCarpetSize()))
     }
     with(roundTower) {
         println("\nRound Tower\n===========")
@@ -30,6 +30,7 @@ fun main() {
         println("Floor area: %.2f".format(floorArea()))
         println("Capacity: ${capacity}")
         println("Has room? ${hasRoom()}")
+        println("Carpet size: %.3f".format(calculateMaxCarpetSize()))
     }
 }
 
@@ -65,6 +66,10 @@ open class RoundHut(residents: Int, val radius: Double) : Dwelling(residents) {
     override val capacity: Int = 4
     override fun floorArea(): Double {
         return PI * radius * radius
+    }
+    fun calculateMaxCarpetSize():Double{
+        val diameter = 2*radius
+        return sqrt(diameter*diameter/2)
     }
 }
 
